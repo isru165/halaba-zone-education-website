@@ -24,6 +24,36 @@ document.querySelectorAll('.main-nav a').forEach(link => {
 
 backTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+// Director section is injected after the hero so it can be added without changing the existing page structure.
+const heroSection = document.querySelector('.hero');
+if (heroSection && !document.querySelector('#director')) {
+  heroSection.insertAdjacentHTML('afterend', `
+    <section class="director-section" id="director">
+      <div class="container">
+        <div class="director-card reveal">
+          <div class="director-image-wrap">
+            <div class="director-placeholder" aria-label="Director photo placeholder">
+              <span>Director's<br>Photo</span>
+            </div>
+          </div>
+          <div class="director-content">
+            <span class="section-kicker">Leadership</span>
+            <h2>Message from the <span>Director.</span></h2>
+            <p class="director-lead">Welcome to the official website of the Halaba Zone Education Department.</p>
+            <p>Our commitment is to strengthen the quality of education, support teachers and educational institutions, and create better learning opportunities for every student in our zone.</p>
+            <p>We believe that quality education is the foundation of sustainable development and a brighter future for our communities.</p>
+            <div class="director-info">
+              <strong>Director's Name</strong>
+              <span>Head of Halaba Zone Education Department</span>
+            </div>
+            <small class="content-note">Official name, photograph and message will be added after confirmation by the department.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  `);
+}
+
 const observer = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
