@@ -24,7 +24,7 @@ document.querySelectorAll('.main-nav a').forEach(link => {
 
 backTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// Director section is injected after the hero so it can be added without changing the existing page structure.
+// Director section with the official photo supplied by the department/user.
 const heroSection = document.querySelector('.hero');
 if (heroSection && !document.querySelector('#director')) {
   heroSection.insertAdjacentHTML('afterend', `
@@ -32,9 +32,7 @@ if (heroSection && !document.querySelector('#director')) {
       <div class="container">
         <div class="director-card reveal">
           <div class="director-image-wrap">
-            <div class="director-placeholder" aria-label="Director photo placeholder">
-              <span>Director's<br>Photo</span>
-            </div>
+            <img src="assets/director.jpg" alt="Director of Halaba Zone Education Department" class="director-photo">
           </div>
           <div class="director-content">
             <span class="section-kicker">Leadership</span>
@@ -46,7 +44,7 @@ if (heroSection && !document.querySelector('#director')) {
               <strong>Director's Name</strong>
               <span>Head of Halaba Zone Education Department</span>
             </div>
-            <small class="content-note">Official name, photograph and message will be added after confirmation by the department.</small>
+            <small class="content-note">Official name and message will be updated after confirmation by the department.</small>
           </div>
         </div>
       </div>
